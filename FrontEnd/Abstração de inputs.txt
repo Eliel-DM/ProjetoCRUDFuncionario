@@ -1,0 +1,9 @@
+FUNCIONARIO - 
+	Nome 
+	CPF
+	Cargo
+	Salário
+	Endereço
+	Matrícula 
+	Data de Nascimento
+	Data de Contratacao
