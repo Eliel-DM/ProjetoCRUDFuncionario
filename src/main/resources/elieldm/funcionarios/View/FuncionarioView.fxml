@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="elieldm.funcionarios.Controller.FuncionarioController"
+      spacing="10">
+
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+
+    <Label text="Cadastro de Funcionário" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+
+    <GridPane hgap="5" vgap="5">
+        <Label text="Matrícula" />
+        <TextField fx:id="txtMatricula" GridPane.columnIndex="1"/>
+
+        <Label text="Nome" GridPane.rowIndex="1"/>
+        <TextField fx:id="txtNome" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+        <Label text="CPF" GridPane.rowIndex="2"/>
+        <TextField fx:id="txtCpf" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+        <Label text="Nascimento" GridPane.rowIndex="3"/>
+        <DatePicker fx:id="dpNascimento" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+        <Label text="Cargo" GridPane.rowIndex="4"/>
+        <TextField fx:id="txtCargo" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+        <Label text="Salário" GridPane.rowIndex="5"/>
+        <TextField fx:id="txtSalario" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+        <Label text="Data Contratação" GridPane.rowIndex="6"/>
+        <DatePicker fx:id="dpContratacao" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+    </GridPane>
+
+    <TitledPane text="Endereço" expanded="false">
+        <GridPane hgap="5" vgap="5">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="Logradouro"/>
+            <TextField fx:id="txtLogradouro" GridPane.columnIndex="1"/>
+
+            <Label text="Número" GridPane.rowIndex="1"/>
+            <TextField fx:id="txtNumero" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+            <Label text="Complemento" GridPane.rowIndex="2"/>
+            <TextField fx:id="txtComplemento" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+            <Label text="Bairro" GridPane.rowIndex="3"/>
+            <TextField fx:id="txtBairro" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+            <Label text="Cidade" GridPane.rowIndex="4"/>
+            <TextField fx:id="txtCidade" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+            <Label text="Estado" GridPane.rowIndex="5"/>
+            <TextField fx:id="txtEstado" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+            <Label text="CEP" GridPane.rowIndex="6"/>
+            <TextField fx:id="txtCep" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+        </GridPane>
+    </TitledPane>
+
+    <HBox spacing="10">
+        <Button text="Salvar" onAction="#salvarFuncionario"/>
+        <Button text="Remover Selecionado" onAction="#removerFuncionario"/>
+    </HBox>
+
+    <Label text="Funcionários Cadastrados:"/>
+    <ListView fx:id="listFuncionarios" prefHeight="150"/>
+
+    <Separator/>
+
+    <Label text="🔍 Filtros de Relatório:" style="-fx-font-weight: bold;"/>
+
+    <HBox spacing="10">
+        <ComboBox fx:id="cbFiltroCargo" promptText="Filtrar por cargo"/>
+        <Button text="Filtrar" onAction="#aplicarFiltroCargo"/>
+
+        <TextField fx:id="txtFiltroCidadeEstado" promptText="Filtrar por cidade ou estado"/>
+        <Button text="Filtrar" onAction="#aplicarFiltroLocal"/>
+
+        <TextField fx:id="txtMinSalario" promptText="Salário mínimo"/>
+        <TextField fx:id="txtMaxSalario" promptText="Salário máximo"/>
+        <Button text="Filtrar" onAction="#aplicarFiltroSalario"/>
+    </HBox>
+
+    <TableView fx:id="tabelaFiltrados" prefHeight="200">
+        <columns>
+            <TableColumn fx:id="colNome" text="Nome"/>
+            <TableColumn fx:id="colCargo" text="Cargo"/>
+            <TableColumn fx:id="colSalario" text="Salário"/>
+            <TableColumn fx:id="colCidade" text="Cidade"/>
+            <TableColumn fx:id="colEstado" text="Estado"/>
+        </columns>
+    </TableView>
+
+</VBox>
